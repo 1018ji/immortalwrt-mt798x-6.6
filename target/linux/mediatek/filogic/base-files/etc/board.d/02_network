@@ -59,6 +59,7 @@ mediatek_setup_interfaces()
 	livinet,zr-3020|\
 	livinet,zr-3020-ubootmod|\
 	qihoo,360t7|\
+	cmcc,mr3000d-cig|\
 	*philips,hy3000*|\
 	sl,3000-emmc|\
 	bt,r320|\
@@ -233,6 +234,11 @@ mediatek_setup_macs()
 	netgear,wax220)
 		lan_mac=$(mtd_get_mac_ascii u-boot-env mac)
 		label_mac=$lan_mac
+		;;
+	cmcc,mr3000d-cig)
+		lan_mac=$(mtd_get_mac_ascii factory macaddr)
+		wan_mac=$(macaddr_add "$lan_mac" 1)
+		label_mac=$wan_mac
 		;;
 	qihoo,360t7)
 		lan_mac=$(mtd_get_mac_ascii factory lanMac)

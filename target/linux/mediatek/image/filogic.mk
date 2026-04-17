@@ -1866,6 +1866,17 @@ define Device/qihoo_360t7
 endef
 TARGET_DEVICES += qihoo_360t7
 
+define Device/cmcc_mr3000d-cig
+  DEVICE_VENDOR := CMCC
+  DEVICE_MODEL := MR3000D-CIG
+  DEVICE_DTS := mt7981b-cmcc-mr3000d-cig
+  DEVICE_DTS_DIR := ../dts
+  BLOCKSIZE := 128k
+  PAGESIZE := 2048
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += cmcc_mr3000d-cig
+
 define Device/routerich_ax3000
   DEVICE_VENDOR := Routerich
   DEVICE_MODEL := AX3000
