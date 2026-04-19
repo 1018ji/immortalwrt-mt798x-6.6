@@ -236,7 +236,7 @@ mediatek_setup_macs()
 		label_mac=$lan_mac
 		;;
 	cmcc,mr3000d-cig)
-		lan_mac=$(mtd_get_mac_ascii factory macaddr)
+		lan_mac=$(mtd_get_mac_binary factory 0x4)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		label_mac=$wan_mac
 		;;
